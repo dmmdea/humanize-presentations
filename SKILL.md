@@ -39,6 +39,18 @@ Replace with a comma, colon, period, or parentheses, chosen per sentence. Use `�
 
 En dashes are correct in numeric ranges (`2024–2026`). Anywhere else, treat them as em dashes.
 
+### Decorative glyphs
+
+**`§` is the loudest tell in this entire skill.** It is a statutory section sign. Outside a legal document, essentially no human decorates a slide with it, and an AI reaching for visual sophistication produces `§ 01`, `§ SECCIÓN 2`, `§ Overview` constantly. Treat a single `§` on a non-legal deck as conclusive.
+
+The same family, used as chrome rather than for meaning:
+
+`§ ¶ ※ ⁂ ❖ ◈ ◆ ★ ✦ ✱ ▪ ► ▸ ‣ ∎ ⟡` and slash-chrome such as `// 01`, `/// SECTION`, `‹ 02 ›`
+
+**Distinguish decoration from a separator system.** A glyph used consistently to separate items, such as `·` in a footer on every slide, is a design choice; leave it. A glyph used as a pseudo-label prefixing a title or a number is slop; delete the glyph and keep the words.
+
+Fake-technical chrome labels are the same failure even without a glyph: `PROTOCOL / 002`, `MODULE 03`, `FIG. 01` on a deck with no protocols, modules, or figures. Delete them.
+
 ### Participles tacked on for fake consequence
 
 `-ing` in English, `-ando/-iendo` in Spanish. The tell is a participle clause bolted to a finished sentence to manufacture significance: *"...affecting the NPS"*, *"...generando percepción de trato injusto"*.
@@ -94,7 +106,7 @@ Chosen by the author: the table below applies in full.
 | Filler slides: Agenda echoing section titles, *Key Takeaways*, *Thank You / Questions?* | Delete; put the ask on the closing slide |
 | Bullet wall where a table or a single number belongs | Restructure |
 | Icon-in-circle + bold title + two-line description, repeated identically | Vary the layout |
-| Emoji in headers, decorative chrome tags | Remove |
+| Emoji in headers | Remove |
 
 Deeper visual and layout critique (palette, spacing, hierarchy) is a design review, not this pass.
 
@@ -196,6 +208,7 @@ When nothing is wrong, say so plainly. A clean deck is a valid result.
 | Clean structure read as a clean deck | The passes are independent. Always run the sentence-level scan |
 | Gating sentence-level tells behind the contract | The gate covers structure only. Em dashes are never rubric-mandated |
 | Estimating counts from impression | Count the countable ones |
+| Missing `§` and its family | Scan for decorative glyphs explicitly; they are a Pass 1 tell, never contract-gated |
 | Every repair for one tell coming out the same shape | Re-scan your own edits and vary them |
 | Thinning a read-alone deck's text | Density is the point when nobody presents it |
 | Demanding speaker notes for a submitted document | Empty notes are correct there |
