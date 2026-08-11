@@ -28,7 +28,7 @@ Findings come in two classes, and conflating them is the failure mode this skill
 
 | | Sentence-level tells | Structural patterns |
 |---|---|---|
-| **Examples** | Em dashes, participle pile-ons, inflation, hedging, AI vocabulary | Title style, repetition, slide shape, text density, speaker notes |
+| **Examples** | `§` and decorative glyphs, em dashes, participle pile-ons, inflation, hedging, AI vocabulary | Title style, repetition, slide shape, text density, speaker notes |
 | **When they apply** | **Always.** No rubric or format makes these acceptable | Only after the deck's contract permits it |
 | **Gated?** | Never | Yes |
 
@@ -60,6 +60,7 @@ Counted, never estimated from impression.
 
 | Tell | Fix |
 |---|---|
+| **`§` and decorative glyphs** (`¶ ※ ⁂ ❖ ◆ ★ ▪ ►`, `// 01`, `PROTOCOL / 002`) | Delete. `§` is a statutory section sign; on a non-legal deck a single one is conclusive. Keep a glyph only when it is a consistent separator system, not a pseudo-label |
 | **Em dash** | Comma, colon, period, parentheses, or `·`. The aside pattern is the signature: `X — the thing that explains X` mid-sentence is a tell even at a count of one |
 | Participle tacked on for fake consequence (`-ing`, or `-ando/-iendo` in Spanish) | Delete, or promote to its own sentence. Keep it only when it states an actual method |
 | Significance inflation (*key, pivotal, fundamental, strategic*) | Delete the adjective, or replace it with the number that earns it |
@@ -94,7 +95,7 @@ Applied only once the contract clears them.
 | Filler slides: Agenda echoing section titles, *Key Takeaways*, *Thank You / Questions?* | Delete, and put the ask on the closing slide |
 | Bullet wall where a table or one number belongs | Restructure |
 | Icon-in-circle + bold title + two-line description, repeated | Break the grid |
-| Emoji in headers, decorative chrome tags, purple gradients | Remove |
+| Emoji in headers, purple gradients | Remove |
 | Vague verbs in any title (*improve, enhance, optimize, leverage, streamline*) | Quantify or cut |
 
 ---
