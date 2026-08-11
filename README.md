@@ -60,8 +60,10 @@ Counted, never estimated from impression.
 
 | Tell | Fix |
 |---|---|
+| **Missing substance** | The strongest signal there is. No concrete detail, no real names, no specific numbers, nothing checkable. Generic competence is the actual defect; everything below is a symptom |
+| **Model artifacts** (`oaicite`, `[cite: 1]`, `contentReference`, stray `**` or `##`) | Conclusive when present. Delete |
 | **`§` and decorative glyphs** (`¶ ※ ⁂ ❖ ◆ ★ ▪ ►`, `// 01`, `PROTOCOL / 002`) | Delete. `§` is a statutory section sign; on a non-legal deck a single one is conclusive. Keep a glyph only when it is a consistent separator system, not a pseudo-label |
-| **Em dash** | Comma, colon, period, parentheses, or `·`. The aside pattern is the signature: `X — the thing that explains X` mid-sentence is a tell even at a count of one |
+| Em dash | Remove as a **style choice**, not as evidence. Density proves nothing (see below). What still carries signal is the mid-sentence aside `X — the thing that explains X`, especially nested |
 | Participle tacked on for fake consequence (`-ing`, or `-ando/-iendo` in Spanish) | Delete, or promote to its own sentence. Keep it only when it states an actual method |
 | Significance inflation (*key, pivotal, fundamental, strategic*) | Delete the adjective, or replace it with the number that earns it |
 | Hedging and vague attribution (*experts say, it is estimated*) | Name the source or cut the claim |
@@ -82,12 +84,36 @@ English word lists do not transfer. **The patterns do.** Map them rather than tr
 
 ---
 
+## What the 2026 evidence says
+
+**Do not build a verdict on one marker.** Humans identify AI text at roughly **57% accuracy**, barely above chance, and every individual punctuation marker measures weak. Slop is a convergence of signals.
+
+The em dash in particular is finished as a tell. Measured per 1,000 words:
+
+| Source | Rate |
+|---|---|
+| Human baseline | 3.23 |
+| Twain, *Huckleberry Finn* | **10.13** |
+| GPT-4.1 | **10.62** |
+| Claude Opus, prose-constrained | 0.19 |
+| Gemini 2.5 Pro, prose-constrained | 0.00 |
+| Llama 3.x | 0.00 |
+
+Twain and GPT-4.1 are indistinguishable on this metric, and newer models suppress dashes deliberately. Removing them is a defensible style choice. Presenting their presence as evidence is not.
+
+**Why they show up at all:** em dashes are markdown leaking into prose. Models trained on markdown-heavy corpora internalize the dash as a structural boundary, so when told to drop formatting the headers and bullets go while the dash survives, because it is already prose-legal. The same leakage produces boldface runs, inline-header lists, and a reflex toward bullets where a sentence belongs.
+
+---
+
 ## Structural tells
 
 Applied only once the contract clears them.
 
 | Tell | Fix |
 |---|---|
+| **Generator template fingerprint**: the deck looks like a filled Gamma, Beautiful.ai, Pitch, or Canva AI template | **The dominant deck tell of 2026.** Reviewers have seen thousands and it fires before anyone reads a word. Real assets, real brand tokens, break the uniform section rhythm |
+| Generic AI stock imagery: abstract gradients, glowing circuitry, anonymous smiling teams | Real photos, real screenshots, real data, or nothing |
+| Copy auto-shrunk to fit its box | Cut the copy, do not shrink the type |
 | Topic-label titles (*Market Overview*) | An action title stating the insight |
 | Chart title names the chart, not the finding | State what the data shows |
 | Everything in threes, third item padding | Cut to two, or let counts differ |
