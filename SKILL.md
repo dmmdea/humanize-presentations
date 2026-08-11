@@ -31,17 +31,27 @@ This skill is self-contained. It needs no other writing skill.
 
 Applies to every deck regardless of contract. Count what is countable; judge the rest sentence by sentence.
 
+### No single marker is proof
+
+**Slop is a convergence of signals, never one character.** Humans identify AI text at roughly 57% accuracy, barely above chance, and every individual punctuation marker has been measured as weak. Do not build a verdict on one tell. Build it on several tells landing in the same passage, plus the substance test below.
+
+**The substance test is the strongest signal available.** Does the text contain concrete detail, real names, specific numbers, or lived experience? Generic competence with nothing checkable behind it is the actual defect. Everything else in this pass is a symptom of that.
+
 ### Em dashes and en dashes
 
-**Default: remove them all.** In slide text an em dash is nearly always doing the AI move of injecting a dramatic explanatory aside: `X — the thing that explains X`. A nested pair in one sentence is the strongest single tell in this skill; almost nobody writes that by hand.
+**Remove them as a style choice, not as a detection claim.** Slide prose is tighter without them, and the aside pattern below is genuinely worth catching. But the frequency argument is dead: measured against a human baseline of 3.23 per 1,000 words, Twain scores 10.13 and GPT-4.1 scores 10.62. Told to write prose, Claude drops 98% and Gemini to zero. Density separates nothing.
+
+What still carries signal is **function, not count**: `X — the thing that explains X` injected mid-sentence, and especially a nested pair inside one sentence. Judge the construction, never the tally.
 
 Replace with a comma, colon, period, or parentheses, chosen per sentence. Use `·` **only if the deck already uses `·` as a separator**, and only for chrome such as footers and subtitles, never mid-sentence.
 
 En dashes are correct in numeric ranges (`2024–2026`). Anywhere else, treat them as em dashes.
 
+> Why these appear at all: em dashes are markdown leaking into prose. Models trained on markdown-saturated text internalize the dash as a structural boundary, and when told to drop formatting the headers and bullets go while the dash survives, because it is already prose-legal. Expect the same leakage as boldface runs, inline-header lists, and a reflex toward bullets over sentences.
+
 ### Decorative glyphs
 
-**`§` is the loudest tell in this entire skill.** It is a statutory section sign. Outside a legal document, essentially no human decorates a slide with it, and an AI reaching for visual sophistication produces `§ 01`, `§ SECCIÓN 2`, `§ Overview` constantly. Treat a single `§` on a non-legal deck as conclusive.
+**`§` is a strong tell.** It is a statutory section sign, and outside a legal document essentially no human decorates a slide with it, while an AI reaching for visual sophistication produces `§ 01`, `§ SECCIÓN 2`, `§ Overview`. Treat it as a strong prompt to look harder, not as proof on its own.
 
 The same family, used as chrome rather than for meaning:
 
@@ -68,6 +78,17 @@ Keep it when it states an actual method: *"by automating the triage"*. Cut or re
 | Copula avoidance (*constitutes, represents, serves as, positions itself as*) | *is* |
 | Filler connectives (*Moreover, Furthermore, Additionally*) | Usually just delete |
 | Vague verbs in any title (*improve, enhance, optimize, leverage, streamline*) | Quantify or cut |
+| Binary contrast (*It's not X. It's Y.*) | State Y directly |
+| Throat-clearing opener (*Here's the thing, Let's be clear, In today's world*) | Delete; start at the first line that says something |
+| Faux-insight setup (*What nobody tells you, The truth is*) | Delete the setup, keep the claim if it survives |
+| Colon reveal used for drama (*The result: growth*) | Write the sentence |
+| Fake-profound closer (*The future is already here, Only time will tell*) | End on a fact or the ask |
+| Dramatic fragments used as emphasis (*Every time. No exceptions.*) | Fine once a deck, a tic beyond that |
+| Synonym cycling for one concept across a slide | Pick one term and repeat it |
+
+### Model artifacts
+
+Leftover generation markup is conclusive when present. Search for `oaicite`, `[cite: 1]`, `contentReference`, `:contentReference[oaicite:0]`, stray `**` or `##` inside a text box, and citation brackets pointing at nothing. Also watch vocabulary that fingerprints a specific model, such as heavy *underscore*, *causal*, *empirical*, and *correlate*.
 
 ### Re-scan your own fixes
 
@@ -107,6 +128,9 @@ Chosen by the author: the table below applies in full.
 | Bullet wall where a table or a single number belongs | Restructure |
 | Icon-in-circle + bold title + two-line description, repeated identically | Vary the layout |
 | Emoji in headers | Remove |
+| **Generator template fingerprint**: the deck looks like a filled Gamma, Beautiful.ai, Pitch, or Canva AI template | The dominant deck tell of 2026. Reviewers have seen thousands. Replace stock imagery with real assets, apply real brand tokens, and break the uniform section rhythm |
+| Generic AI stock imagery: abstract gradients, glowing circuitry, anonymous smiling teams | Real photos, real screenshots, real data, or nothing |
+| Copy visibly overflowing or auto-shrunk to fit its box | Cut the copy, do not shrink the type |
 
 Deeper visual and layout critique (palette, spacing, hierarchy) is a design review, not this pass.
 
@@ -209,6 +233,8 @@ When nothing is wrong, say so plainly. A clean deck is a valid result.
 | Gating sentence-level tells behind the contract | The gate covers structure only. Em dashes are never rubric-mandated |
 | Estimating counts from impression | Count the countable ones |
 | Missing `§` and its family | Scan for decorative glyphs explicitly; they are a Pass 1 tell, never contract-gated |
+| Declaring a verdict from one marker | Slop is convergent. Require several signals plus the substance test |
+| Treating em dash count as evidence | Density separates nothing. Judge the aside construction instead |
 | Every repair for one tell coming out the same shape | Re-scan your own edits and vary them |
 | Thinning a read-alone deck's text | Density is the point when nobody presents it |
 | Demanding speaker notes for a submitted document | Empty notes are correct there |
