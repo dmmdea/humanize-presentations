@@ -1,6 +1,6 @@
 ---
 name: humanize-presentations
-description: Use when an existing slide deck reads as AI-generated, generic, or templated, or when asked to de-slop, humanize, tighten, or retouch a .pptx that already exists, or to review a deck's wording before it ships. Symptoms include em dashes everywhere, topic-label titles, everything in threes, filler slides, bullet walls, and hedged claims with no numbers. Not for building a deck from scratch.
+description: Use when an existing slide deck reads as AI-generated, generic, or templated, or when asked to de-slop, humanize, tighten, or retouch a .pptx that already exists, or to review a deck's wording before it ships. Symptoms include generic claims with nothing checkable behind them, a deck that looks like a filled Gamma or Beautiful.ai template, topic-label titles, everything in threes, filler slides, bullet walls, decorative section glyphs, and leftover generation markup. Not for building a deck from scratch.
 ---
 
 # Humanize Presentations
@@ -20,7 +20,7 @@ This skill is self-contained. It needs no other writing skill.
 
 | | Sentence-level | Structural |
 |---|---|---|
-| Examples | Em dashes, participles, inflation, hedging, AI vocabulary | Title style, repetition, slide shape, text density, notes |
+| Examples | Missing substance, cliché density, participles, inflation, hedging, AI vocabulary, model artifacts, em dashes | Title style, repetition, slide shape, text density, notes |
 | Applies | **Always.** No format makes these acceptable | Only if the deck's contract permits |
 
 **A well-structured deck can still be full of bot patterns.** Establishing that the structure is deliberate never clears the prose. Run the sentence-level pass on every deck, always, even when the structure is exemplary.
