@@ -103,10 +103,8 @@ Applied only once the contract clears them.
 
 Slide text and speaker notes are opposites, and the most common way to damage a deck is to treat them alike.
 
-- **Slide text**: inflation, AI vocabulary, boldface and emoji, hedging. Never rhythm or voice passes. Slide text is not prose.
-- **Speaker notes**: rhythm and voice. Notes are spoken, and should sound like a person talking.
-
-Read-alone decks have no second channel. Treat their slide text as prose and apply everything.
+- **Slide text**: every sentence-level tell applies. Never add rhythm variation, first person, opinions, or conversational texture. Slide text is not prose, and this holds for read-alone decks too, where density is the point.
+- **Speaker notes**: the sentence-level tells, plus varied rhythm and a spoken register. Notes are read aloud, so they should sound like a person talking.
 
 ---
 
@@ -179,7 +177,9 @@ This skill changes words. Not packaging, not design.
 
 ## Credits
 
-The prose-level pattern vocabulary builds on [jpeggdev/humanize-writing](https://github.com/jpeggdev/humanize-writing) (MIT) and, upstream of that, Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) maintained by WikiProject AI Cleanup. This skill is complementary rather than a replacement: use the prose skill on prose, and this one on decks.
+The sentence-level pattern vocabulary is informed by [jpeggdev/humanize-writing](https://github.com/jpeggdev/humanize-writing) (MIT) and, upstream of that, Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) maintained by WikiProject AI Cleanup.
+
+**This skill is self-contained and installs nothing else.** The two are complementary: use a prose humanizer on prose, and this one on decks.
 
 ## License
 
