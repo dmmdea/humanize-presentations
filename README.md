@@ -16,7 +16,7 @@ Prose humanizers are excellent at prose. Point one at a slide deck and it does r
 
 They also miss the tells that actually mark a deck as machine-made. A word list built for essays has nothing to say about topic-label titles, "Thank You / Questions?" slides, or a chart titled `Revenue by Quarter` instead of what the revenue did.
 
-But the harder problem is the opposite one. **Most deck "tells" are also legitimate design choices.** A deck can be repetitive because a rubric demanded it, dense because nobody is going to present it, and titled by topic because the section names mirror an assignment. A checklist run without judgment flags all of it, produces thirty findings, and the three that mattered get lost.
+But the harder problem is the opposite one. **Most deck "tells" are also legitimate design choices.** A deck can follow a fixed section cycle because a rubric demanded it, and carry topic titles because the section names mirror an assignment. A checklist run without judgment flags those alongside the real tells, produces thirty findings, and the three that mattered get lost. The opposite failure is worse: a gate wide enough to excuse the rubric also excuses the template, and passes a deck with the section name in the eyebrow and the footer of every slide.
 
 This skill exists to tell those two situations apart.
 
@@ -28,7 +28,7 @@ Findings come in two classes, and conflating them is the failure mode this skill
 
 | | Sentence-level tells | Structural patterns |
 |---|---|---|
-| **Examples** | `§` and decorative glyphs, em dashes, participle pile-ons, inflation, hedging, AI vocabulary | Title style, repetition, slide shape, text density, speaker notes |
+| **Examples** | Chrome that repeats itself, word count, presenter narration on slides, `§` and decorative glyphs, em dashes, participle pile-ons, inflation, hedging, AI vocabulary | Which sections exist, what they are called, whether a required cycle is followed |
 | **When they apply** | **Always.** No rubric or format makes these acceptable | Only after the deck's contract permits it |
 | **Gated?** | Never | Yes |
 
