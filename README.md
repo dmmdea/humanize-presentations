@@ -38,19 +38,21 @@ The trap: you establish that a deck's structure is legitimate, and conclude the 
 
 Before flagging anything structural, answer two questions from evidence in the file:
 
+**The contract can excuse exactly two things: which sections exist and what they are called.** The rubric imposes content. The template imposes chrome. Only the rubric earns protection. A brief that requires a section named `Strategies (Step 2)` protects that title appearing once. It does not protect an eyebrow above it, a footer echoing it, badges beside its items, a callout label on every card, or 130 words on the slide.
+
 **Is it read alone, or presented live?**
 
-- *Read alone* (leave-behind, submitted deliverable, board pre-read): dense slide text is **correct**, and empty speaker notes are **correct**. Do not thin the text. Do not ask for notes.
+- *Read alone* (leave-behind, submitted deliverable, board pre-read): empty speaker notes are correct, and more slides or more evidence is acceptable. It does not license more words per idea, presenter narration on the slide, or any chrome.
 - *Presented live*: slide text is support, detail belongs in notes, and missing notes is a real finding.
 
-**Is its structure imposed or chosen?**
+**Is the section structure imposed or chosen?**
 
-- *Imposed* by a rubric, template, or house format: repetition, fixed section names, and identical slide shapes are compliance, not slop.
+- *Imposed* by a rubric or brief: the required sections, their names, and a required cycle across parallel cases are compliance. Nothing else is.
 - *Chosen* by the author: the structural tells apply in full.
 
-When the contract makes a pattern correct, it is not reported at all. Not softened, not as "consider". A list padded with wrong flags gets the right ones ignored.
+When the contract makes a pattern correct, it is not reported at all. Not softened, not as "consider". But check that the pattern is one of the two the contract can actually cover before clearing it.
 
-> **Where this rule came from.** The skill was tested against a real teaching deck: 21 slides, every title a topic label, rigid triads throughout, eight identical slide shapes repeated twice, and 21 empty notes pages. A naive checklist produces roughly thirty findings. Nearly all of them are wrong. The titles mirrored the assignment's required steps, the repeated structure *was* the teaching payload, and the deck stated outright that it had to be understandable without anyone presenting it. Meanwhile the genuine defects, 13 em dashes and a set of participle pile-ons, were sitting untouched in the prose.
+> **Where this rule came from, including the part that was wrong.** The skill was tested against a real teaching deck: 21 slides, every title a rubric step, rigid triads, eight slide shapes repeated across two parallel cases, empty notes. The first version of the gate cleared all of it as rubric compliance. That was half right. The section names and the repeated cycle were the assignment's. But the same deck carried the section label in an eyebrow *and* a footer on 17 of 21 slides, three chrome bars on every slide, 131 words per slide on average, and 15 lines of presenter narration typed onto slides. None of that is in any rubric. The gate had been protecting the template, and the user caught it from one screenshot. The gate is now narrow: sections and their names, nothing else.
 
 ---
 
@@ -62,6 +64,9 @@ Counted, never estimated from impression.
 |---|---|
 | **Missing substance** | The strongest signal there is. No concrete detail, no real names, no specific numbers, nothing checkable. Generic competence is the actual defect; everything below is a symptom |
 | **Model artifacts** (`oaicite`, `[cite: 1]`, `contentReference`, stray `**` or `##`) | Conclusive when present. Delete |
+| **Chrome that repeats itself**: section label in an eyebrow *and* a footer on the same slide, badges, callout labels on every card | Never gated. A section label appears once per slide, as the title. Everything else carrying it goes |
+| **Word count**: over ~80 words a slide, every line must justify itself; over ~120 it is a document page turned sideways | Cut, do not shrink the type. Read-alone earns more content, never more words per idea |
+| **Presenter's voice written down**: `How to read this:`, `This attacks the cost of...`, `Note: figures are illustrative` | Notes if presented, folded or cut if read alone |
 | **`§` and decorative glyphs** (`¶ ※ ⁂ ❖ ◆ ★ ▪ ►`, `// 01`, `PROTOCOL / 002`) | Delete. `§` is a statutory section sign; on a non-legal deck a single one is conclusive. Keep a glyph only when it is a consistent separator system, not a pseudo-label |
 | Em dash | Remove as a **style choice**, not as evidence. Density proves nothing (see below). What still carries signal is the mid-sentence aside `X — the thing that explains X`, especially nested |
 | Participle tacked on for fake consequence (`-ing`, or `-ando/-iendo` in Spanish) | Delete, or promote to its own sentence. Keep it only when it states an actual method |
