@@ -48,11 +48,11 @@ Before flagging anything structural, answer two questions from evidence in the f
 **Is the section structure imposed or chosen?**
 
 - *Imposed* by a rubric or brief: the required sections, their names, and a required cycle across parallel cases are compliance. Nothing else is.
-- *Chosen* by the author: the structural tells apply in full.
+- *Chosen* by the author: nothing is cleared. Either way, only those three rows are ever gateable; every other tell applies to every deck.
 
-When the contract makes a pattern correct, it is not reported at all. Not softened, not as "consider". But check that the pattern is one of the two the contract can actually cover before clearing it.
+When the contract makes a pattern correct, it is not reported at all. Not softened, not as "consider". But check that the pattern is one of the three the contract can actually cover before clearing it.
 
-> **Where this rule came from, including the part that was wrong.** The skill was tested against a real teaching deck: 21 slides, every title a rubric step, rigid triads, eight slide shapes repeated across two parallel cases, empty notes. The first version of the gate cleared all of it as rubric compliance. That was half right. The section names and the repeated cycle were the assignment's. But the same deck carried the section label in an eyebrow *and* a footer on 17 of 21 slides, three chrome bars on every slide, 131 words per slide on average, and 15 lines of presenter narration typed onto slides. None of that is in any rubric. The gate had been protecting the template, and the user caught it from one screenshot. The gate is now narrow: sections and their names, nothing else.
+> **Where this rule came from, including the part that was wrong.** The skill was tested against a real teaching deck: 21 slides, every title a rubric step, rigid triads, eight slide shapes repeated across two parallel cases, empty notes. The first version of the gate cleared all of it as rubric compliance. That was half right. The section names and the repeated cycle were the assignment's. But the same deck carried the section label in an eyebrow *and* a footer on 17 of 21 slides, three chrome bars on every slide, 131 words per slide on average, and 15 lines of presenter narration typed onto slides. None of that is in any rubric. The gate had been protecting the template, and the user caught it from one screenshot. The gate is now narrow: which sections exist, what they are called, and a required cycle across parallel cases. Nothing else.
 
 ---
 
@@ -72,7 +72,7 @@ Counted, never estimated from impression.
 | Participle tacked on for fake consequence (`-ing`, or `-ando/-iendo` in Spanish) | Delete, or promote to its own sentence. Keep it only when it states an actual method |
 | Significance inflation (*key, pivotal, fundamental, strategic*) | Delete the adjective, or replace it with the number that earns it |
 | Hedging and vague attribution (*experts say, it is estimated*) | Name the source or cut the claim |
-| Negative parallelism (*not only... but also*) | Once per deck maximum |
+| Negative parallelism (*not only... but also*) | A tic when dense relative to length; recast |
 | Copula avoidance (*constitutes, represents, positions itself as*) | *is* |
 
 ### Re-scan your own fixes
@@ -85,7 +85,7 @@ This rule exists because the skill's author made this exact mistake during testi
 
 ### Non-English decks
 
-English word lists do not transfer. **The patterns do.** Map them rather than translating the list: `-ing` pile-on becomes `-ando/-iendo`; *delve/leverage/robust* becomes *abordar/aprovechar/robusto/integral*; *it's worth noting* becomes *cabe destacar/es importante señalar*. Judge structure and function, never vocabulary.
+English word lists do not transfer. **The patterns do.** Map them rather than translating the list: `-ing` pile-on becomes `-ando/-iendo`. Spanish markers that actually fingerprint generated text: *profundizar en, en un mundo cada vez más, en el ámbito de, es crucial destacar, cabe destacar, potenciar, holístico, sinergia, robusto*. `abordar` and `integral` are ordinary business Spanish; do not flag them on sight. Judge structure and function, never vocabulary.
 
 ---
 
@@ -112,14 +112,13 @@ Twain and GPT-4.1 are indistinguishable on this metric, and newer models suppres
 
 ## Structural tells
 
-Applied only once the contract clears them.
+Only three of these are ever gateable: which sections exist, what they are called, and a required cycle across parallel cases. Everything else in this table applies to every deck.
 
 | Tell | Fix |
 |---|---|
 | **Generator template fingerprint**: the deck looks like a filled Gamma, Beautiful.ai, Pitch, or Canva AI template | Requires rendered slides to judge. Reviewers have seen thousands of template decks and recognize one before reading a word. Real assets, real brand tokens, break the uniform section rhythm |
 | Generic AI stock imagery: abstract gradients, glowing circuitry, anonymous smiling teams | Real photos, real screenshots, real data, or nothing |
 | Copy auto-shrunk to fit its box | Cut the copy, do not shrink the type |
-| Topic-label titles (*Market Overview*) | An action title stating the insight |
 | Chart title names the chart, not the finding | State what the data shows |
 | Everything in threes, third item padding | Let the counts differ; never convert every triad to a pair |
 | Bullets written as full sentences with periods | Fragments, one idea each |
@@ -146,7 +145,7 @@ Validation is delegated to a PowerPoint/pptx skill; reading uses a `python-pptx`
 
 1. **Validate before reading.** A broken file outranks its prose.
 2. **Check the container separately.** Standard validators do not check OPC part ordering, so a deck can pass validation and still make PowerPoint offer to Repair it.
-3. **Read** with a text extractor, writing to a UTF-8 file rather than a console.
+3. **Read** with a `python-pptx` shape walk (band, placeholder flag, per-slide words), written to a UTF-8 file rather than a console.
 4. **Write to a copy**, with a hit count per replacement rule, correct repackaging, re-validation, and a before/after count of the tell being removed.
 
 ### Failure modes
@@ -159,7 +158,7 @@ Every row was hit for real during development.
 | Validator passes, PowerPoint still offers Repair | `[Content_Types].xml` is not the first zip entry | Repackage with it first |
 | Accents render as `?` or a replacement glyph | cp1252 stdout | Write UTF-8 to a file, read the file |
 | Your edited deck now needs repair | Naive rezip wrote directory entries | Repackage without them |
-| A replacement rule reports 0 hits | The span crosses two text runs | Match a shorter span inside one run |
+| A replacement rule reports 0 hits | Span crosses two runs, or the text lives in layouts, masters, charts, or diagrams | Grep the whole `ppt/` tree for a short fragment first; a shortened span that matches elsewhere is a silent wrong replacement |
 | A deck full of tells declared clean | Sentence-level pass never ran | Both passes are mandatory |
 
 > **The OPC ordering one is worth knowing even if you never use this skill.** A `.pptx` whose zip has `[Content_Types].xml` anywhere but first will be rejected by PowerPoint while passing every validator, opening fine in python-pptx, and rendering correctly in LibreOffice. It is produced by naively rezipping an unpacked deck. The fix is repackaging with the content-types stream written first and no directory entries.

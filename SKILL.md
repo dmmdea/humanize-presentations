@@ -125,7 +125,7 @@ Deleting a glyph from inside a string that survives is Tier 1. Deleting the whol
 | Tell | Fix | Tier |
 |---|---|---|
 | Significance inflation (*key, pivotal, fundamental, strategic, crucial*) | Delete the adjective, or replace it with the number that earns it | 1 |
-| Hedging and vague attribution (*experts say, it is estimated, studies show*) | Name the source if the deck has one; otherwise list the claim for the operator | 1 if named, else menu |
+| Hedging and vague attribution (*experts say, it is estimated, studies show*) | Name the source if the deck has one; otherwise list the claim on the Tier 2 menu (cutting it removes a line) | 1 if named, else 2 |
 | AI vocabulary (*delve, leverage, robust, seamless, comprehensive, landscape, ecosystem*) | Plain equivalent | 1 |
 | Negative parallelism (*not only... but also*) | A tic when dense relative to length; recast | 1 |
 | Copula avoidance (*constitutes, represents, serves as, positions itself as*) | *is* | 1 |
@@ -168,7 +168,7 @@ Two failures. A **topic label** (`Market Overview`, `Riesgos`) names the subject
 |---|---|---|
 | Chart title names the chart, not the finding | State what happened | 2 |
 | Everything in threes, third item padding | Let the counts differ; never convert every triad to a pair | 2 |
-| Bullets written as full sentences with periods | Fragments, one idea each | 1 if only punctuation and function words change, else 2 |
+| Bullets written as full sentences with periods | Fragments, one idea each | 1 (the line survives shorter). Merging or deleting bullets is 2 |
 | Filler slides: Agenda echoing section titles, *Key Takeaways*, *Thank You / Questions?* | Delete; put the ask on the closing slide | 2 |
 | Bullet wall where a table or one number belongs | Restructure | 2 |
 | Emoji in headers | Remove | 1 |
@@ -235,7 +235,7 @@ Throughout: `src` is the operator's file, `dst` is the copy you write. Never wri
 PYTHONUTF8=1 PYTHONIOENCODING=utf-8 python "$S/scripts/office/validate.py" "$src"
 ```
 
-A broken file outranks its prose. Report and repair this before commenting on wording.
+A broken file outranks its prose. Report it before commenting on wording. Repair (step C) on the apply path; on a review-only request, report the failure and the fix, and write nothing.
 
 ### B. Check the container
 
@@ -277,16 +277,39 @@ The archive itself will differ (timestamps, compression); the parts must not.
 from pptx import Presentation
 src = 'deck.pptx'
 p = Presentation(src); H = p.slide_height
+
+def walk(shapes):                      # recurse into groups: badges and icon-cards live there
+    for sh in shapes:
+        if sh.shape_type == 6:         # MSO_SHAPE_TYPE.GROUP
+            yield from walk(sh.shapes)
+        else:
+            yield sh
+
+def top_of(sh, slide):
+    if sh.top is not None:
+        return sh.top
+    if sh.is_placeholder:              # inherited geometry: resolve from the layout
+        try:
+            return slide.slide_layout.placeholders[sh.placeholder_format.idx].top
+        except KeyError:
+            pass
+    return None                        # unknown: flag, never default to 0
+
 for i, s in enumerate(p.slides, 1):
-    for sh in s.shapes:
-        if not sh.has_text_frame or not sh.text_frame.text.strip():
+    for sh in walk(s.shapes):
+        texts = []
+        if sh.has_text_frame and sh.text_frame.text.strip():
+            texts = [sh.text_frame.text.strip()]
+        elif getattr(sh, 'has_table', False) and sh.has_table:   # tables count toward the word budget
+            texts = [c.text.strip() for r in sh.table.rows for c in r.cells if c.text.strip()]
+        if not texts:
             continue
-        y = (sh.top or 0) / H
-        band = 'top' if y < 0.15 else ('bottom' if y > 0.85 else 'body')
-        # record (i, band, sh.is_placeholder, sh.text_frame.text.strip())
+        y = top_of(sh, s)
+        band = 'unplaced' if y is None else ('top' if y/H < 0.15 else ('bottom' if y/H > 0.85 else 'body'))
+        # record (i, band, sh.is_placeholder, texts)
 ```
 
-Per-slide words = the sum over its text shapes; a chrome echo = a label token appearing in both a top and a bottom shape of the same slide. Write the walk to a UTF-8 file and read that. Printing accented text to a Windows console mangles it.
+Per-slide words = the sum over all recorded texts, tables included. A chrome echo = a label token appearing in both a top and a bottom shape of the same slide; treat `unplaced` shapes as candidates and check them by eye, never as body by default. Write the walk to a UTF-8 file and read that. Printing accented text to a Windows console mangles it.
 
 ### E. Tier 1 write: characters inside a run
 
@@ -297,7 +320,7 @@ Replace inside `<a:t>` content in `ppt/slides/*.xml` and `ppt/notesSlides/*.xml`
 Only after the operator selects from the menu. Use `python-pptx` on a copy; re-run A and B on the output regardless.
 
 - **Delete a shape** (eyebrow, footer, badge, label): remove the element, never blank its text. `sh._element.getparent().remove(sh._element)`. A blanked run leaves an empty box in its layout slot.
-- **Move narration to notes:** `s.notes_slide.notes_text_frame.text = ...` creates the notes part if missing. Then delete the shape as above.
+- **Move narration to notes:** append, never assign. `tf = s.notes_slide.notes_text_frame` (creates the part if missing), then `tf.add_paragraph().text = line`. Assigning `tf.text = ...` wipes the author's existing notes, and presented decks are identified by having them. Then delete the shape as above.
 - **Delete a slide:** follow the pptx skill's edit path: unpack, remove the entry from `<p:sldIdLst>` in `ppt/presentation.xml`, run its `scripts/clean.py` to drop the orphaned part, media, and rels, repack from inside the directory. Do not hand-delete parts.
 - **Master or layout placeholder:** editing it changes every slide. It goes on the menu with that warning and is done only if selected.
 
