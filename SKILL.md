@@ -13,8 +13,23 @@ This skill is self-contained. It needs no other writing skill.
 
 1. Open the deck safely (File Handling).
 2. Run **both** passes: sentence-level, then structural.
-3. Report findings ranked by damage.
-4. On request, produce an edited **copy**. Never touch the original.
+3. Report findings ranked by damage, split into the two edit tiers below.
+4. On request, apply **Tier 1** to a copy. Present **Tier 2** as options and apply only what the operator selects. Never touch the original.
+
+## Two Edit Tiers
+
+The boundary is what the edit does to the slide, not how big it is.
+
+| | Tier 1: wording | Tier 2: structure and content |
+|---|---|---|
+| Keeps | Every text box, every idea, the layout | Nothing is guaranteed to survive |
+| Changes | Words inside existing runs | Which boxes exist, which lines exist, how much is on the slide |
+| Examples | Em dash repairs, participle recasts, dropping an inflated adjective, plain verb for a noun phrase, deleting a glyph from a string, fixing a topic-label title into an insight | Deleting eyebrows, footers, badges, callout labels; removing presenter narration; cutting body text to budget; breaking a triad; turning a bullet wall into a table; deleting a filler slide |
+| Applied | On request, to a copy, with the file-handling steps | **Only per explicit operator selection.** Presented first as analysis with options |
+
+**Why the split.** Tier 1 leaves the deck looking the same and reading better. Tier 2 changes what the deck *is*: it removes things the author or the generator put there, and on a designed template it changes the look of every slide. That is the operator's decision to make with the analysis in front of them, not the skill's to make on their behalf.
+
+An operator can pre-authorize Tier 2 ("do all of it", "apply everything you recommend"). Absent that, Tier 2 is a menu.
 
 ## Two Classes of Finding
 
@@ -245,9 +260,20 @@ Then confirm every part is byte-identical to the source before continuing.
 
 ## Output
 
-Report findings, most damaging first. For each: the slide number, the quoted text, the tell, and the replacement. Keep it to what matters; if there are thirty findings and three are load-bearing, lead with those three.
+Three parts, in this order.
 
-Close with counts: tells found, tells fixed, and the output path.
+**1. Analysis.** The deck's numbers first, because they frame everything else: slides, words per slide (average and max), chrome boxes per slide, how many slides echo a section label top and bottom, presenter-narration lines, and the contract you established (read-alone or presented; sections imposed or chosen) with the evidence for it. Then findings, most damaging first: slide number, quoted text, the tell, and the fix.
+
+**2. Tier 1 edits.** What was applied to the copy, or what will be on request. Close with counts: tells found, tells fixed, before and after, and the output path.
+
+**3. Tier 2 options.** A compact menu the operator can pick from. One line per option, grouped, each with the slide count it touches, what it removes or changes, and what the slide looks like after. Example shape:
+
+> **A. Chrome** (21 slides). Delete the eyebrow and the section footer on every slide; keep one deck-wide footer. Each slide loses two label bars and keeps its title. Changes the template's look.
+> **B. Badges and callout labels** (10 slides). Delete the numbered badges and the repeated `Trade-off:` label; keep the trade-off text as a plain second line. Cards lose their bold header.
+> **C. Presenter narration** (15 lines, 9 slides). Cut lines the presenter would say aloud; list them. Slides lose an intro sentence each.
+> **D. Word budget** (19 slides over 90 words). Cut body text to roughly half, preserving every number and every named trade-off. This rewrites, not trims; approve per slide or as a batch.
+
+State plainly which options you would take and why, then stop. Do not apply any of them until the operator picks.
 
 When nothing is wrong, say so plainly. A clean deck is a valid result.
 
@@ -270,4 +296,6 @@ When nothing is wrong, say so plainly. A clean deck is a valid result.
 | Adding personality to slide text | That is for notes, never slides |
 | Editing the original file | Always work on a copy |
 | Commenting on content before validating | A broken deck outranks its prose |
-| Offering the fix instead of producing it | If asked for a de-slop, hand back the edited copy |
+| Offering Tier 1 instead of producing it | If asked for a de-slop, hand back the copy with Tier 1 applied |
+| Applying Tier 2 without being asked | Structure and content are the operator's call. Present the menu, then wait |
+| Burying the Tier 2 menu under thirty findings | Lead with the deck's numbers, then the three findings that matter, then the menu |

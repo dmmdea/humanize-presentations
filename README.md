@@ -166,6 +166,18 @@ Every row was hit for real during development.
 
 ---
 
+## Two edit tiers, and who decides
+
+| | Tier 1: wording | Tier 2: structure and content |
+|---|---|---|
+| Keeps | Every text box, every idea, the layout | Nothing is guaranteed to survive |
+| Examples | Em dash repairs, participle recasts, dropping an inflated adjective, plain verb for a noun phrase | Deleting eyebrows and footers, removing presenter narration, cutting body text to budget, deleting a filler slide |
+| Applied | On request, to a copy | **Only what the operator selects**, from a menu the skill presents with the analysis |
+
+Tier 1 leaves the deck looking the same and reading better. Tier 2 changes what the deck *is*, and on a designed template it changes the look of every slide. The skill's job is to put the analysis and the options in front of the operator, then wait.
+
+---
+
 ## Install
 
 ```bash
