@@ -1,6 +1,6 @@
 ---
 name: humanize-presentations
-description: Use when an existing slide deck reads as AI-generated, generic, or templated, or when asked to de-slop, humanize, tighten, or retouch a .pptx that already exists, or to review a deck's wording before it ships. Symptoms include generic claims with nothing checkable behind them, a deck that looks like a filled Gamma or Beautiful.ai template, topic-label titles, everything in threes, filler slides, bullet walls, decorative section glyphs, and leftover generation markup. Not for building a deck from scratch.
+description: Use when an existing slide deck reads as AI-generated, generic, or templated, or when asked to de-slop, humanize, tighten, or retouch a .pptx that already exists, or to review a deck's wording before it ships. Symptoms include the section name repeated in an eyebrow and a footer on the same slide, over a hundred words per slide, presenter narration typed onto slides, generic claims with nothing checkable behind them, a deck that looks like a filled Gamma or Beautiful.ai template, topic-label titles, everything in threes, filler slides, bullet walls, decorative section glyphs, and leftover generation markup. Not for building a deck from scratch.
 ---
 
 # Humanize Presentations
@@ -20,7 +20,7 @@ This skill is self-contained. It needs no other writing skill.
 
 | | Sentence-level | Structural |
 |---|---|---|
-| Examples | Missing substance, cliché density, participles, inflation, hedging, AI vocabulary, model artifacts, em dashes | Title style, repetition, slide shape, text density, notes |
+| Examples | Chrome that repeats itself, word count, presenter's voice written down, missing substance, cliché density, participles, inflation, hedging, AI vocabulary, model artifacts, em dashes | Which sections exist, what they are called, whether the deck follows a required cycle |
 | Applies | **Always.** No format makes these acceptable | Only if the deck's contract permits |
 
 **A well-structured deck can still be full of bot patterns.** Establishing that the structure is deliberate never clears the prose. Run the sentence-level pass on every deck, always, even when the structure is exemplary.
@@ -48,6 +48,30 @@ Replace with a comma, colon, period, or parentheses, chosen per sentence. Use `�
 En dashes are correct in numeric ranges (`2024–2026`). Anywhere else, treat them as em dashes.
 
 > Why these appear at all: em dashes are markdown leaking into prose. Models trained on markdown-saturated text internalize the dash as a structural boundary, and when told to drop formatting the headers and bullets go while the dash survives, because it is already prose-legal. Expect the same leakage as boldface runs, inline-header lists, and a reflex toward bullets over sentences.
+
+### Slide chrome that repeats itself
+
+**The single most reliable deck tell, and never contract-gated.** A generator dresses every slide the same way: an eyebrow or kicker above the title, the title, a section footer below, a deck footer below that, number or letter badges beside each item, and a bold callout label on every card. Read one slide top to bottom and count how many text boxes carry no content, only labels.
+
+The signature is the **same label twice on one slide**: `RUTA A · SOPORTE` in the eyebrow and `Ruta A · Estrategias` in the footer, or `CONTEXTO` above and `Contexto` below. No human writes the section name at the top of a slide and then again at the bottom of the same slide. On a deck where the eyebrow echoes the footer on most slides, the whole chrome layer is generator output.
+
+**Rule: a section label appears at most once per slide, as the title.** Everything else that carries it goes: eyebrows, kickers, section footers, badge numbers that exist only to number, and repeated callout labels (`Trade-off:`, `Note:`, `Dependency:`) stamped on every card. A single deck-wide footer with the deck's name is fine. Three chrome bars per slide is not.
+
+### Word budget
+
+**A slide averaging over a hundred words is a document page turned sideways.** Count words per slide before judging anything else. Above roughly 80 words, every line has to justify itself; above roughly 120, the slide is prose that was never meant to be a slide, and no contract excuses it.
+
+Read-alone decks may carry more *content*, meaning more slides or more evidence. They never earn more *words per idea*. Padding is padding whether or not anyone presents it. Cut, do not shrink the type.
+
+### Presenter's voice written down
+
+Lines a human would say aloud while pointing at the slide, typed onto the slide instead: `How to read this map:`, `This attacks the cost of the case that already happened.`, `What the team would measure to know it is working:`, `Note: figures are illustrative.` These are narration, not content.
+
+On a presented deck they move to speaker notes. On a read-alone deck they are folded into the content they narrate or cut; keep one only when the reader cannot get that information from anything else on the slide. A slide that carries three of them was written by something that could not tell the difference between the slide and the talk.
+
+### Register
+
+Long noun phrases and technical vocabulary where the presenter would use a plain verb: *the routing of the case* for *routing*, *a well-labelled historical dataset* for *good labels*, *implementation of the verification protocol* for *verifying*. On a slide, use the words the presenter would say. Density of uncommon words across a deck is a stronger tell than any single one.
 
 ### Decorative glyphs
 
@@ -104,19 +128,21 @@ English word lists do not transfer; the patterns do. Map them instead of transla
 
 ## Pass 2: Structural Tells
 
-**Establish the deck's contract first.** Most structural tells are also legitimate design choices, and a list padded with wrong flags gets the right ones ignored.
+**Establish the deck's contract first, and keep it narrow.** The contract can excuse exactly two things: which sections exist and what they are called. It never excuses how a slide is dressed.
+
+**The rubric imposes content. The template imposes chrome. Only the rubric earns protection.** A brief that requires a section named `Estrategias (Paso 2)` protects that title appearing once. It does not protect an eyebrow above it, a footer echoing it, badges beside its items, a callout label on every card, or 130 words on the slide. Those are template decisions, and template decisions are always in scope.
 
 **Is it read alone, or presented live?**
-Read alone (leave-behind, submitted deliverable, board pre-read): dense slide text is correct and empty speaker notes are correct. Do not thin the text, do not ask for notes.
+Read alone (leave-behind, submitted deliverable, board pre-read): empty speaker notes are correct, and more slides or more evidence per slide is acceptable. It does not license more words per idea, presenter narration on the slide, or any chrome.
 Presented live: slide text is support, detail belongs in notes, and missing notes is a real finding.
 *Evidence:* an explicit statement in the deck, a submission requirement, or populated notes.
 
-**Is the structure imposed or chosen?**
-Imposed by a rubric, template, or house format: repetition, fixed section names, and identical slide shapes are compliance, not slop.
+**Is the section structure imposed or chosen?**
+Imposed by a rubric or brief: the required sections, their names, and a required cycle across parallel cases are compliance. Nothing else is.
 Chosen by the author: the table below applies in full.
 *Evidence:* step numbers in titles, section names mirroring a brief, a stated methodology.
 
-**When the contract makes a pattern correct, do not report it at all.** Not softened, not as "consider".
+**When the contract makes a pattern correct, do not report it at all.** Not softened, not as "consider". But check the pattern is one of the two the contract can actually cover before you clear it.
 
 | Tell | Fix |
 |---|---|
@@ -140,7 +166,7 @@ Deeper visual and layout critique (palette, spacing, hierarchy) is a design revi
 
 They are opposites, and treating them alike is the most common way to damage a deck.
 
-- **Slide text:** apply every sentence-level tell above. Do **not** add rhythm variation, first person, opinions, or conversational texture. Slide text is not prose, and this holds for read-alone decks too, where density is the point.
+- **Slide text:** apply every sentence-level tell above. Do **not** add rhythm variation, first person, opinions, or conversational texture. Slide text is not prose, and this holds for read-alone decks too: they earn more content, never more words per idea.
 - **Speaker notes:** apply the sentence-level tells, and additionally let the rhythm vary and sound spoken, because they are.
 
 ---
@@ -236,7 +262,9 @@ When nothing is wrong, say so plainly. A clean deck is a valid result.
 | Declaring a verdict from one marker | Slop is convergent. Require several signals plus the substance test |
 | Treating em dash count as evidence | Density separates nothing. Judge the aside construction instead |
 | Every repair for one tell coming out the same shape | Re-scan your own edits and vary them |
-| Thinning a read-alone deck's text | Density is the point when nobody presents it |
+| Excusing chrome or word count as rubric compliance | The rubric names sections. It never dresses slides. Chrome and density are always in scope |
+| Reading a read-alone contract as license for padding | It buys more content, not more words per idea |
+| Passing a slide with the section name in the eyebrow and the footer | Same label twice on one slide is the generator. Cut to one, as the title |
 | Demanding speaker notes for a submitted document | Empty notes are correct there |
 | Flagging rubric-imposed section names | Compliance is not slop |
 | Adding personality to slide text | That is for notes, never slides |
